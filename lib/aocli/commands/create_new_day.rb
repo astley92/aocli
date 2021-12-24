@@ -3,6 +3,6 @@ class Aocli::Commands::CreateNewDay < ActiveInteraction::Base
   integer :day
 
   def execute
-    # TODO: This
+    byebug
   end
 end
