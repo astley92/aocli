@@ -1,7 +1,7 @@
 class Aocli::CLI
   class << self
     def start
-      token = Aocli::Commands::FetchToken.run
+      token = Aocli::Commands::FetchToken.run!
       prompt = TTY::Prompt.new
       options = [
         create_new_day_option(available: !token.nil?),
