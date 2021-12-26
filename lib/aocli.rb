@@ -1,7 +1,9 @@
-require("zeitwerk")
 require("active_interaction")
-require("tty-prompt")
 require("faraday")
+require("kramdown")
+require("nokogiri")
+require("tty-prompt")
+require("zeitwerk")
 
 loader = Zeitwerk::Loader.for_gem
 loader.inflector.inflect(

@@ -18,6 +18,10 @@ class Aocli::Commands::CreateNewDay < ActiveInteraction::Base
   end
 
   def create_files(base_dir)
+    problem_html = Aocli::Adapter.fetch_problem_html(year: year, day: day)
+    markdown = Kramdown::Document.new(problem_html, html_to_native: true).to_kramdown
+
+    File.write(File.join(base_dir, "problem.md"), markdown)
     File.write(File.join(base_dir, "part_one.rb"), solution_content(base_dir))
     File.write(File.join(base_dir, "part_two.rb"), solution_content(base_dir))
     File.write(File.join(base_dir, "inputs.txt"), Aocli::Adapter.fetch_input(year: year, day: day))

@@ -11,6 +11,14 @@ class Aocli::Adapter
       response.body
     end
 
+    def fetch_problem_html(year:, day:)
+      response = Faraday.get("https://adventofcode.com/#{year.to_s}/day/#{day.to_s}")
+      return too_early_string if response.body.include? "Please don't repeatedly request this endpoint before it unlocks!"
+      return something_wrong_string unless response.status == 200
+
+      problem_html = Nokogiri::HTML.parse(response.body).css("//article").children.to_html
+    end
+
     private
 
     def too_early_string

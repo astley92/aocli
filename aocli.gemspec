@@ -27,8 +27,11 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency("byebug")
   spec.add_development_dependency("rake")
   spec.add_development_dependency("rspec")
+
   spec.add_dependency("active_interaction")
   spec.add_dependency("faraday")
+  spec.add_dependency("kramdown")
+  spec.add_dependency("nokogiri")
   spec.add_dependency("tty-prompt")
   spec.add_dependency("zeitwerk")
 end
