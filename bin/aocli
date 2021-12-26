@@ -1,5 +1,4 @@
 #!/usr/bin/env ruby
+require("aocli")
 
-require_relative("../initializers/boot")
-
-Aocli::CLI.start
+Aocli.start_cli

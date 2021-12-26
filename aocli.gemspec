@@ -26,11 +26,11 @@ Gem::Specification.new do |spec|
   spec.executables   = spec.files.grep(%r{^bin/}) { |f| File.basename(f) }
   spec.require_paths = ["lib"]
 
-  spec.add_development_dependency("active_interaction")
   spec.add_development_dependency("byebug")
-  spec.add_development_dependency("faraday")
-  spec.add_development_dependency("rspec")
   spec.add_development_dependency("rake")
-  spec.add_development_dependency("tty-prompt")
-  spec.add_development_dependency("zeitwerk")
+  spec.add_development_dependency("rspec")
+  spec.add_dependency("active_interaction")
+  spec.add_dependency("faraday")
+  spec.add_dependency("tty-prompt")
+  spec.add_dependency("zeitwerk")
 end
