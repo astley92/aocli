@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    aocli (0.1.0)
+    aocli (1.0.0)
       active_interaction
       faraday
       tty-prompt

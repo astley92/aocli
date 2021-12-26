@@ -1,4 +1,4 @@
-require_relative("../initializers/boot")
+require("aocli")
 
 RSpec.configure do |config|
   # Enable flags like --only-failures and --next-failure
