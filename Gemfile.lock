@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    aocli (1.0.0)
+    aocli (1.0.1)
       active_interaction
       faraday
       kramdown
@@ -49,11 +49,9 @@ GEM
       concurrent-ruby (~> 1.0)
     kramdown (2.3.1)
       rexml
-    mini_portile2 (2.6.1)
     minitest (5.15.0)
     multipart-post (2.1.1)
-    nokogiri (1.12.5)
-      mini_portile2 (~> 2.6.1)
+    nokogiri (1.12.5-arm64-darwin)
       racc (~> 1.4)
     pastel (0.8.0)
       tty-color (~> 0.5)

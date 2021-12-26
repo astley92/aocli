@@ -30,10 +30,11 @@ Run `aocli` and follow the prompts. If you have not yet set your advent of code 
 
 ## What's Coming?
 
-- [x] Save the days problem text in a .md file
-- [ ] Submit functions for each part so you don't have to leave your editor.
-- [ ] Scrape the day's problem text in an attempt to save test input data into the generated test_inputs file
-- [ ] Allow users to set which folders/files should be created
+- [x] Save the days problem text in a .md file.
+- [x] Submit functions for each part so you don't have to leave your editor.
+- [ ] Explain how to get your advent of code token.
+- [ ] Scrape the day's problem text in an attempt to save test input data into the generated test_inputs file.
+- [ ] Allow users to set which folders/files should be created.
 
 ## Development
 

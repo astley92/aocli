@@ -11,6 +11,10 @@ class Aocli::CLI
 
       case choice
       when "Start new day"
+        # TODO: Set sensible year and day validations. Something like
+        # max_day = 25, max_year = the year that includes the most
+        # recent December.
+
         year = prompt.ask("Enter the year:") do |q|
           q.validate(/\A\d{4}\z/, "Please enter a valid year")
           q.convert(:int)
