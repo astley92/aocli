@@ -1,8 +1,6 @@
 # Aocli
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/aocli`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+## TODO
 
 ## Installation
 
@@ -22,9 +20,17 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+Once installed, the gem is ready to use. Simply navigate to directory that you are using to complete your Advent of Code challenges, this will be the directory that the boilerplate directories and files will be created.
+
+    $ cd Projects/advent_of_code
+
+Run `aocli` and follow the prompts. If you have not yet set your advent of code session token for aocli, you'll be asked to set it before you can generate any files. See the section, **How to get my Advent of Code session token**, to find out how you can retrieve this. This will be saved in the `~/aoc_token` file.
+
+![Farmers Market Finder Demo](demo/aocli_demo_gif.gif)
 
 ## Development
+
+## TODO
 
 After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
 
