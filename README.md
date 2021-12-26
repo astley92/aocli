@@ -1,6 +1,6 @@
 # Aocli
 
-## TODO
+A simple CLI to build boilerplate code for Advent of Code challenges. Simply install the gem, run `aocli` set your session token if you haven't already and follow the prompts. You'll end up with all the boilerplate files and code you need to jump straight into the days challenge.
 
 ## Installation
 
@@ -28,13 +28,20 @@ Run `aocli` and follow the prompts. If you have not yet set your advent of code 
 
 ![Farmers Market Finder Demo](demo/aocli_demo_gif.gif)
 
+## What's Coming?
+
+- [ ] Save the days problem text in a .md file
+- [ ] Submit functions for each part so you don't have to leave your editor.
+- [ ] Scrape the day's problem text in an attempt to save test input data into the generated test_inputs file
+- [ ] Allow users to set which folders/files should be created
+
 ## Development
 
-## TODO
+### TODO
 
-After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
+~~After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.~~
 
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
+~~To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).~~
 
 ## Contributing
 
