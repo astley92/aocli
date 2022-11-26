@@ -1,5 +1,3 @@
-require("fileutils")
-
 module Aocli
   module Commands
     class StartDay

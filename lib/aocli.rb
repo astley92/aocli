@@ -5,6 +5,7 @@ require("aocli/cli")
 require("aocli/commands/start_day")
 
 require("date")
+require("fileutils")
 require("tty-prompt")
 
 module Aocli
