@@ -1,17 +1,12 @@
 module Aocli
   module Content
     module Main
-      module_function
-
-      def content
+      def self.content
         <<~RUBY
-          require("byebug")
-
           ##### Part One Description #####
 
           class Solution
             def self.run!(input)
-
               new(parse_input(input)).run!
             end
 
@@ -28,6 +23,7 @@ module Aocli
             end
           end
 
+          input = File.read("./input.txt")
           Solution.run!(input)
         RUBY
       end

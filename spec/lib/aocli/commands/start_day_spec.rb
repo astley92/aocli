@@ -5,13 +5,10 @@ RSpec.describe Aocli::Commands::StartDay do
 
     let(:expected_ruby) do
       <<~RUBY
-        require("byebug")
-
         ##### Part One Description #####
 
         class Solution
           def self.run!(input)
-
             new(parse_input(input)).run!
           end
 
@@ -28,6 +25,7 @@ RSpec.describe Aocli::Commands::StartDay do
           end
         end
 
+        input = File.read("./input.txt")
         Solution.run!(input)
       RUBY
     end
