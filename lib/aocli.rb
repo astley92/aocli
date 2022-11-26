@@ -3,6 +3,7 @@
 require("aocli/version")
 require("aocli/cli")
 require("aocli/commands/start_day")
+require("aocli/templates/main")
 
 require("date")
 require("fileutils")

@@ -23,9 +23,7 @@ module Aocli
       end
 
       def create_files(directory)
-        File.write(File.join(directory, "main.rb"), <<~CONT)
-          Hey there
-        CONT
+        File.write(File.join(directory, "main.rb"), Aocli::Content::Main.content)
 
         File.write(File.join(directory, "input.txt"), <<~CONT)
           Inputs go here
