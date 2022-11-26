@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
-require_relative "aocli/version"
+require "aocli/version"
+require "aocli/cli"
 
 module Aocli
   class Error < StandardError; end

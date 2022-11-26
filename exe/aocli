@@ -2,4 +2,4 @@
 
 require "aocli"
 
-puts Aocli::hello_world
+options = Aocli::Cli.call
