@@ -2,6 +2,8 @@
 
 require("aocli/version")
 require("aocli/cli")
+require("aocli/commands/start_day")
+
 require("date")
 require("tty-prompt")
 

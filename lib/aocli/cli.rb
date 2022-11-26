@@ -9,6 +9,7 @@ module Aocli::Cli
 
     {
       date: Date.today,
+      output_destination: "."
     }
   end
 end

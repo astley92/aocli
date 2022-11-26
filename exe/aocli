@@ -3,3 +3,4 @@
 require("aocli")
 
 options = Aocli::Cli.call
+Aocli::Commands::StartDay.run!(options)
