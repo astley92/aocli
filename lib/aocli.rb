@@ -2,6 +2,7 @@
 
 require("aocli/version")
 require("aocli/cli")
+require("date")
 require("tty-prompt")
 
 module Aocli
