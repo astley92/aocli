@@ -17,6 +17,10 @@ task :install => :build do
   system "gem install aocli-" + Aocli::VERSION + ".gem"
 end
 
+task :install_and_run => :install do
+  system "aocli"
+end
+
 task :publish => :build do
   system "gem push aocli-" + Aocli::VERSION + ".gem"
 end

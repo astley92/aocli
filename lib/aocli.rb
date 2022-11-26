@@ -1,7 +1,8 @@
 # frozen_string_literal: true
 
-require "aocli/version"
-require "aocli/cli"
+require("aocli/version")
+require("aocli/cli")
+require("tty-prompt")
 
 module Aocli
   class Error < StandardError; end
