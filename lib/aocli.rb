@@ -4,5 +4,8 @@ require_relative "aocli/version"
 
 module Aocli
   class Error < StandardError; end
-  # Your code goes here...
+
+  def self.hello_world
+    puts "Hello, world!"
+  end
 end
