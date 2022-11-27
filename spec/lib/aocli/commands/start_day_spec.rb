@@ -6,16 +6,17 @@ RSpec.describe Aocli::Commands::StartDay do
     let(:expected_ruby) do
       <<~RUBY
         ##### Part One Description #####
-        # --- Day 1: Sonar Sweep ---You're minding your own business on a ship at sea
-        # when the overboard alarm goes off! You rush to see if you can help. Apparently,
-        # one of the Elves tripped and accidentally sent the sleigh keys flying into the
-        # ocean!
+        # --- Day 1: Sonar Sweep ---
+        # You're minding your own business on a ship at sea when the overboard alarm goes
+        # off! You rush to see if you can help. Apparently, one of the Elves tripped and
+        # accidentally sent the sleigh keys flying into the ocean!
         #
         # Before you know it, you're inside a submarine the Elves keep ready for
         # situations like this. It's covered in Christmas lights (because of course it
         # is), and it even has an experimental antenna that should be able to track the
         # keys if you can boost its signal strength high enough; there's a little meter
         # that indicates the antenna's signal strength by displaying 0-50 stars.
+        #
         # Your instincts tell you that in order to save Christmas, you'll need to get all
         # fifty stars by December 25th.
         #
@@ -29,6 +30,7 @@ RSpec.describe Aocli::Commands::StartDay do
         # floor depth as the sweep looks further and further away from the submarine.
         #
         # For example, suppose you had the following report:
+        #
         # 199
         # 200
         # 208
@@ -50,6 +52,7 @@ RSpec.describe Aocli::Commands::StartDay do
         # To do this, count the number of times a depth measurement increases from the
         # previous measurement. (There is no measurement before the first measurement.) In
         # the example above, the changes are as follows:
+        #
         # 199 (N/A - no previous measurement)
         # 200 (increased)
         # 208 (increased)

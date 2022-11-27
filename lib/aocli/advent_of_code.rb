@@ -15,7 +15,9 @@ module Aocli
       raise(StandardError, "Something went wrong: #{response.inspect}") unless response.ok?
 
       html = Nokogiri::HTML(response.body)
-      html.css("article").first.text
+      article = html.css("article").first
+      article.search("p,h2").each { |element| element.after("\n") }
+      article.text
     end
 
     def client
