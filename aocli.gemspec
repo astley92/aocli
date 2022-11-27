@@ -34,7 +34,9 @@ Gem::Specification.new do |spec|
   # Uncomment to register a new dependency of your gem
   spec.add_runtime_dependency "date"
   spec.add_runtime_dependency "fileutils"
+  spec.add_runtime_dependency "nokogiri"
   spec.add_runtime_dependency "tty-prompt"
+  spec.add_runtime_dependency "faraday"
 
   spec.add_development_dependency "byebug"
   spec.add_development_dependency "rake"

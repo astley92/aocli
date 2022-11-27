@@ -10,6 +10,7 @@ require("aocli/version")
 require("date")
 require("fileutils")
 require("tty-prompt")
+require("nokogiri")
 
 module Aocli
   class Error < StandardError; end
