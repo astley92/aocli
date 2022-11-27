@@ -1,9 +1,11 @@
 # frozen_string_literal: true
 
-require("aocli/version")
+require("aocli/advent_of_code")
 require("aocli/cli")
 require("aocli/commands/start_day")
-require("aocli/templates/main")
+require("aocli/file_utils")
+require("aocli/content/main")
+require("aocli/version")
 
 require("date")
 require("fileutils")
