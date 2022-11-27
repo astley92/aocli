@@ -71,6 +71,7 @@ GEM
       wisper (~> 2.0)
     tty-screen (0.8.1)
     unicode-display_width (2.3.0)
+    vcr (6.1.0)
     wisper (2.0.1)
 
 PLATFORMS
@@ -82,6 +83,7 @@ DEPENDENCIES
   rake
   rspec
   rubocop
+  vcr
 
 BUNDLED WITH
    2.3.25

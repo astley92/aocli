@@ -32,16 +32,17 @@ Gem::Specification.new do |spec|
   spec.require_paths = ["lib"]
 
   # Uncomment to register a new dependency of your gem
-  spec.add_runtime_dependency "date"
-  spec.add_runtime_dependency "fileutils"
-  spec.add_runtime_dependency "nokogiri"
-  spec.add_runtime_dependency "tty-prompt"
-  spec.add_runtime_dependency "faraday"
+  spec.add_runtime_dependency("date")
+  spec.add_runtime_dependency("fileutils")
+  spec.add_runtime_dependency("nokogiri")
+  spec.add_runtime_dependency("tty-prompt")
+  spec.add_runtime_dependency("faraday")
 
-  spec.add_development_dependency "byebug"
-  spec.add_development_dependency "rake"
-  spec.add_development_dependency "rspec"
-  spec.add_development_dependency "rubocop"
+  spec.add_development_dependency("byebug")
+  spec.add_development_dependency("rake")
+  spec.add_development_dependency("rspec")
+  spec.add_development_dependency("rubocop")
+  spec.add_development_dependency("vcr")
 
   # For more information and examples about making a new gem, check out our
   # guide at: https://bundler.io/guides/creating_gem.html
