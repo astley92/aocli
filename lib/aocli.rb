@@ -13,9 +13,4 @@ require("tty-prompt")
 require("nokogiri")
 
 module Aocli
-  class Error < StandardError; end
-
-  def self.hello_world
-    puts "Hello, world!"
-  end
 end
