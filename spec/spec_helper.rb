@@ -2,6 +2,7 @@
 
 require("aocli")
 require("byebug")
+require("timecop")
 require("vcr")
 
 VCR.configure do |config|

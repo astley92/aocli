@@ -14,5 +14,19 @@ RSpec.describe Aocli::Commands::StartDay do
       expect(File.read("./spec/tmp/2021/day_1/main.rb").strip).to eq(expected_ruby.strip)
       expect(File.read("./spec/tmp/2021/day_1/input.txt")).to eq(expected_input)
     end
+
+    context "when its prior to the requested date" do
+      before { Timecop.travel(DateTime.parse("2021-11-30T23:59:56EST")) }
+
+      it "Shows the user a countdown" do
+        VCR.use_cassette("start_day_spec") do
+          expect { run }.to output(include(
+            "Waiting 3 seconds before fetching...",
+            "Waiting 2 seconds before fetching...",
+            "Waiting 1 seconds before fetching...",
+          )).to_stdout
+        end
+      end
+    end
   end
 end

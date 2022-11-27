@@ -60,6 +60,7 @@ GEM
       parser (>= 3.1.1.0)
     ruby-progressbar (1.11.0)
     ruby2_keywords (0.0.5)
+    timecop (0.9.5)
     tty-color (0.6.0)
     tty-cursor (0.7.1)
     tty-prompt (0.23.1)
@@ -83,6 +84,7 @@ DEPENDENCIES
   rake
   rspec
   rubocop
+  timecop
   vcr
 
 BUNDLED WITH

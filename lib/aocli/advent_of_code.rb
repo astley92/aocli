@@ -5,12 +5,25 @@ module Aocli
     module_function
 
     def get_problem_description(year:, day:)
-      response = nil
       while true
+        current_time = DateTime.now.new_offset("EST")
+        live_time = DateTime.new(year, 12, day, 0, 0, 0, "EST")
+        time_to_wait = ((live_time - current_time) * 24 * 60 * 60).to_i
+        break if time_to_wait < 1
+
+        print("\rWaiting #{time_to_wait} seconds before fetching...".ljust(40, " "))
+        sleep(1)
+      end
+
+      response = nil
+      attempts = 0
+      while true
+        print("\rFetching problem and input attempt ##{attempts}".ljust(40, " "))
         response = client.get_problem_description(year: year, day: day)
 
         break unless response.should_retry?
-        sleep 10
+        print("\rSleeping".ljust(40, " "))
+        sleep(1)
       end
       raise(StandardError, "Something went wrong: #{response.inspect}") unless response.ok?
 
