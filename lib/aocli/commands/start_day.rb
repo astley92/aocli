@@ -43,9 +43,12 @@ module Aocli
       end
 
       def create_input_file(directory)
-        File.write(File.join(directory, "input.txt"), <<~CONT)
-          Inputs go here
-        CONT
+        input = Aocli::AdventOfCode.get_problem_inputs(
+          year: date.year,
+          day: date.day,
+        )
+
+        File.write(File.join(directory, "input.txt"), input)
       end
     end
   end

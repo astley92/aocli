@@ -9,7 +9,7 @@ module Aocli
       end
 
       def ok?
-        status == :ok
+        status == 200
       end
     end
 
@@ -19,20 +19,38 @@ module Aocli
         @conn = initialise_conn_object
       end
 
+      def get_problem_inputs(year:, day:)
+        res = conn.get("/#{year}/day/#{day}/input")
+        case res.status
+        when 200
+          Response.new(
+            status: res.status,
+            body: res.body,
+            should_retry: false,
+          )
+        else
+          Response.new(
+            status: res.status,
+            body: res.body,
+            should_retry: false,
+          )
+        end
+      end
+
       def get_problem_description(year:, day:)
         res = conn.get("/#{year}/day/#{day}")
         case res.status
         when 200
-          Response.new(status: :ok, body: res.body, should_retry: false)
+          Response.new(status: res.status, body: res.body, should_retry: false)
         when 404
           Response.new(
-            status: :not_found,
+            status: res.status,
             body: res.body,
             should_retry: res.body.include?("Please don't repeatedly request this endpoint before it unlocks!"),
           )
         else
           Response.new(
-            status: :unknown,
+            status: res.status,
             body: res.body,
             should_retry: false,
           )

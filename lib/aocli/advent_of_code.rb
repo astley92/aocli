@@ -20,6 +20,15 @@ module Aocli
       article.text
     end
 
+    def get_problem_inputs(year:, day:)
+      response = client.get_problem_inputs(year: year, day: day)
+      unless response.ok?
+        raise(StandardError, "unable to fetch input - #{response.inspect}")
+      end
+
+      response.body
+    end
+
     def client
       @client ||= Aocli::AdventOfCode::Client.new
     end
