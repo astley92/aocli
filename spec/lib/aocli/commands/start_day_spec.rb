@@ -16,7 +16,11 @@ RSpec.describe Aocli::Commands::StartDay do
     end
 
     context "when its prior to the requested date" do
-      before { Timecop.travel(DateTime.parse("2021-11-30T23:59:56EST")) }
+      before do
+        Timecop.travel(DateTime.parse("2021-11-30T23:59:56EST"))
+        allow(Aocli::AdventOfCode).to receive(:sleep)
+        Timecop.scale(100)
+      end
 
       it "Shows the user a countdown" do
         VCR.use_cassette("start_day_spec") do
@@ -42,6 +46,7 @@ RSpec.describe Aocli::Commands::StartDay do
       end
 
       it "raises an exception" do
+        expect(Aocli::AdventOfCode).to receive(:sleep).exactly(5).times
         expect { run }.to raise_error(StandardError, include("Unable to fetch todays problem"))
       end
     end
