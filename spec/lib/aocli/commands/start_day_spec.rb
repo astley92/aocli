@@ -29,7 +29,7 @@ RSpec.describe Aocli::Commands::StartDay do
       end
     end
 
-    context "when the problem can't be fetched within 5 retries" do
+    context "when the problem can't be fetched within #{Aocli::AdventOfCode::MAX_RETRY_COUNT} retries" do
       before do
         response_to_return = Aocli::AdventOfCode::Response.new(
           status: 400,
