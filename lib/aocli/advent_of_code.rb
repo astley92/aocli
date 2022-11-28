@@ -14,18 +14,20 @@ module Aocli
         print("\rWaiting #{time_to_wait} seconds before fetching...".ljust(40, " "))
         sleep(1)
       end
+      puts
 
       response = nil
-      attempts = 0
-      while true
-        print("\rFetching problem and input attempt ##{attempts}".ljust(40, " "))
+      attempt_count = 0
+      while attempt_count < 5
+        attempt_count += 1
+        print("\rFetching problem and input attempt ##{attempt_count}".ljust(40, " "))
         response = client.get_problem_description(year: year, day: day)
-
         break unless response.should_retry?
-        print("\rSleeping".ljust(40, " "))
+
         sleep(1)
       end
-      raise(StandardError, "Something went wrong: #{response.inspect}") unless response.ok?
+      puts
+      raise(StandardError, "Unable to fetch todays problem: #{response.inspect}") unless response.ok?
 
       html = Nokogiri::HTML(response.body)
       article = html.css("article").first

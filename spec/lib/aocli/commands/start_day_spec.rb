@@ -28,5 +28,22 @@ RSpec.describe Aocli::Commands::StartDay do
         end
       end
     end
+
+    context "when the problem can't be fetched within 5 retries" do
+      before do
+        response_to_return = Aocli::AdventOfCode::Response.new(
+          status: 400,
+          should_retry: true,
+          body: "",
+        )
+        allow_any_instance_of(Aocli::AdventOfCode::Client).to receive(:get_problem_description) do
+          response_to_return
+        end
+      end
+
+      it "raises an exception" do
+        expect { run }.to raise_error(StandardError, include("Unable to fetch todays problem"))
+      end
+    end
   end
 end
