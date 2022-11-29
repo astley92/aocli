@@ -11,47 +11,38 @@ module Aocli
       def initialize(date:, output_destination:)
         @date = date
         @output_destination = output_destination
+        @main_file_path = File.join(output_destination, date.year.to_s, "day_#{date.day}", "main.rb")
+        @input_file_path = File.join(output_destination, date.year.to_s, "day_#{date.day}", "input.txt")
       end
 
       def run!
-        directory = create_dir_path
-        create_files(directory)
+        Aocli::FileUtils.touch_file(main_file_path)
+        Aocli::FileUtils.touch_file(input_file_path)
+        File.write(main_file_path, main_content)
+        File.write(input_file_path, input_content)
       end
 
       private
-      attr_reader :date, :output_destination
+      attr_reader :date, :output_destination, :main_file_path, :input_file_path
 
-      def create_dir_path
-        ::FileUtils.mkdir_p(File.join(output_destination, date.year.to_s, "day_#{date.day}"))
-      end
-
-      def create_files(directory)
-        create_main_file(directory)
-        create_input_file(directory)
-      end
-
-      def create_main_file(directory)
+      def main_content
         problem_description = Aocli::AdventOfCode.get_problem_description(
           year: date.year,
           day: date.day,
         )
 
-        main_content = Aocli::FileUtils.insert_lines(
+        Aocli::FileUtils.insert_lines(
           Aocli::FileUtils.wrap_lines(problem_description).split("\n").map { _1 == "" ? "#" : "# #{_1}" },
           into: Aocli::Content::Main.content,
           after: "##### Part One Description #####",
         )
-
-        File.write(File.join(directory, "main.rb"), main_content)
       end
 
-      def create_input_file(directory)
-        input = Aocli::AdventOfCode.get_problem_inputs(
+      def input_content
+        Aocli::AdventOfCode.get_problem_inputs(
           year: date.year,
           day: date.day,
         )
-
-        File.write(File.join(directory, "input.txt"), input)
       end
     end
   end
