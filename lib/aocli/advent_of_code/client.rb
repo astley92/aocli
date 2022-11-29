@@ -16,8 +16,8 @@ module Aocli
     class Client
       attr_reader :conn
       def initialize
-        @conn = initialise_conn_object
         @cookie = Aocli::CookieRetriever.call
+        @conn = initialise_conn_object
         raise(StandardError, "No cookie is set") unless @cookie
       end
 
@@ -62,10 +62,9 @@ module Aocli
       private
 
       def initialise_conn_object
-        cookie = @cookie
         Faraday.new(
           url: "https://adventofcode.com/",
-          headers: {'Cookie' => cookie },
+          headers: {'Cookie' => @cookie },
         )
       end
     end
