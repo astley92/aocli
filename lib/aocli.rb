@@ -6,6 +6,7 @@ require("aocli/commands/start_day")
 require("aocli/file_utils")
 require("aocli/content/main")
 require("aocli/version")
+require("aocli/token_retriever")
 
 require("date")
 require("fileutils")
