@@ -32,6 +32,7 @@ Gem::Specification.new do |spec|
   spec.require_paths = ["lib"]
 
   # Uncomment to register a new dependency of your gem
+  spec.add_runtime_dependency("activesupport")
   spec.add_runtime_dependency("date")
   spec.add_runtime_dependency("fileutils")
   spec.add_runtime_dependency("nokogiri")

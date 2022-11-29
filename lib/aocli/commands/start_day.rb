@@ -2,7 +2,10 @@ module Aocli
   module Commands
     class StartDay
       def self.run!(options)
-        new(**options).run!
+        new(
+          date: options[:date],
+          output_destination: options[:output_destination],
+        ).run!
       end
 
       def initialize(date:, output_destination:)

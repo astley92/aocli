@@ -2,19 +2,17 @@ require("yaml")
 
 module Aocli
   module TokenRetriever
-    TOKEN_LOCATION = "~/.aocli_config"
-
     module_function
 
     def call
       return unless file_exists?
 
-      contents = YAML.load_file(TOKEN_LOCATION)
-      contents["token"]
+      config = YAML.load_file(Aocli::Values::CONFIG_FILE_PATH)
+      config["token"]
     end
 
     def file_exists?
-      File.file?(TOKEN_LOCATION)
+      File.file?(Aocli::Values::CONFIG_FILE_PATH)
     end
   end
 end

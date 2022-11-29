@@ -41,5 +41,10 @@ module Aocli
       end
       into_array.join("\n")
     end
+
+    def touch_file(file_path)
+      ::FileUtils.mkdir_p(File.join(file_path.split("/")[0..-2]))
+      ::FileUtils.touch(file_path)
+    end
   end
 end
