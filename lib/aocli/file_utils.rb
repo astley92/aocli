@@ -42,6 +42,10 @@ module Aocli
       into_array.join("\n")
     end
 
+    def replace_line(lines, line_to_replace, replace_with)
+      lines.split("\n").map { _1 == line_to_replace ? replace_with : _1 }.join("\n")
+    end
+
     def touch_file(file_path)
       ::FileUtils.mkdir_p(File.join(file_path.split("/")[0..-2]))
       ::FileUtils.touch(file_path)

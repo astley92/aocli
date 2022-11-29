@@ -6,7 +6,8 @@ module Aocli
           ##### Part One Description #####
 
           class Solution
-            def initialize
+            attr_accessor :input
+            def initialize(input)
               @input = input
             end
 
@@ -14,16 +15,17 @@ module Aocli
               new(parse_input(input)).run!
             end
 
-            def self.parse_input
-              puts "Parse inputs here"
+            def self.parse_input(input)
+              # Parse input
+              input
             end
 
             def run!
-              puts "Solution code goes here"
+              # Solve input
             end
           end
 
-          input = File.read("./input.txt")
+          # __load_input__
           puts Solution.run!(input)
         RUBY
       end

@@ -63,7 +63,8 @@
 # How many measurements are larger than the previous measurement?
 
 class Solution
-  def initialize
+  attr_accessor :input
+  def initialize(input)
     @input = input
   end
 
@@ -71,14 +72,15 @@ class Solution
     new(parse_input(input)).run!
   end
 
-  def self.parse_input
-    puts "Parse inputs here"
+  def self.parse_input(input)
+    # Parse input
+    input
   end
 
   def run!
-    puts "Solution code goes here"
+    # Solve input
   end
 end
 
-input = File.read("./input.txt")
+input = File.read("#{__FILE__}".gsub("main.rb", "input.txt"))
 puts Solution.run!(input)
