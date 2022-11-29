@@ -8,7 +8,7 @@ module Aocli
       return unless file_exists?
 
       config = YAML.load_file(Aocli::Values::CONFIG_FILE_PATH)
-      config["cookie"]
+      config[:cookie]
     end
 
     def file_exists?
