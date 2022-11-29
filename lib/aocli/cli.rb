@@ -29,6 +29,8 @@ module Aocli
         set_start_day_options
       when "Aocli::Commands::SaveCookie"
         set_save_cookie_options
+      when "Exit"
+        exit
       else
         raise NotImplementedError, "Can't handle that command: #{command_klass}"
       end
@@ -38,6 +40,7 @@ module Aocli
       @command_options ||= [
         {name: "Save Cookie", value: "Aocli::Commands::SaveCookie"},
         requires_cookie({name: "Start day", value: "Aocli::Commands::StartDay"}),
+        {name: "Exit", value: "Exit"},
       ]
       # TODO:
       # requires_cookie({name: "Remove cookie file", value: "Aocli::Commands::RemoveCookieFile"}),
