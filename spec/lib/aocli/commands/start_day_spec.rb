@@ -1,4 +1,7 @@
 RSpec.describe Aocli::Commands::StartDay do
+  before do
+    stub_const("Aocli::Values::CONFIG_FILE_PATH", "spec/fixtures/.aocli_config")
+  end
   describe ".run!" do
     subject(:run) { described_class.run!(options) }
     let(:options) { {date: Date.parse("2021-12-01"), output_destination: "./spec/tmp/"} }

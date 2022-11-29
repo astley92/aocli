@@ -1,9 +1,9 @@
 module Aocli
   module Commands
-    module SaveToken
+    module SaveCookie
       def self.run!(options)
         Aocli::FileUtils.touch_file(Aocli::Values::CONFIG_FILE_PATH)
-        File.write(Aocli::Values::CONFIG_FILE_PATH, {token: options[:token]}.to_yaml)
+        File.write(Aocli::Values::CONFIG_FILE_PATH, {cookie: options[:cookie]}.to_yaml)
       end
     end
   end

@@ -4,6 +4,7 @@ require("aocli")
 require("byebug")
 require("timecop")
 require("vcr")
+require("active_support")
 
 VCR.configure do |config|
   config.cassette_library_dir = "spec/fixtures/cassettes"

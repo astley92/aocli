@@ -1,14 +1,14 @@
 require("yaml")
 
 module Aocli
-  module TokenRetriever
+  module CookieRetriever
     module_function
 
     def call
       return unless file_exists?
 
       config = YAML.load_file(Aocli::Values::CONFIG_FILE_PATH)
-      config["token"]
+      config["cookie"]
     end
 
     def file_exists?

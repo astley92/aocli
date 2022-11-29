@@ -3,7 +3,7 @@ require"byebug"
 module Aocli
   class Cli
     def initialize
-      @options = {token: Aocli::TokenRetriever.call}
+      @options = {cookie: Aocli::CookieRetriever.call}
       @prompt = TTY::Prompt.new
     end
 
@@ -11,13 +11,13 @@ module Aocli
       prompt_for_command
       get_all_command_options
       # Aocli::Commands::StartDay
-      # Aocli::Commands::SaveToken
+      # Aocli::Commands::SaveCookie
       options[:command].constantize.run!(options)
     end
 
     private
     attr_accessor :options, :prompt
-    attr_reader :token
+    attr_reader :cookie
 
     def prompt_for_command
       options[:command] = prompt.select("What would you like to do?", command_options)
@@ -27,8 +27,8 @@ module Aocli
       case options[:command]
       when "Aocli::Commands::StartDay"
         set_start_day_options
-      when "Aocli::Commands::SaveToken"
-        set_save_token_options
+      when "Aocli::Commands::SaveCookie"
+        set_save_cookie_options
       else
         raise NotImplementedError, "Can't handle that command: #{command_klass}"
       end
@@ -36,15 +36,15 @@ module Aocli
 
     def command_options
       @command_options ||= [
-        {name: "Save Token", value: "Aocli::Commands::SaveToken"},
-        requires_token({name: "Start day", value: "Aocli::Commands::StartDay"}),
+        {name: "Save Cookie", value: "Aocli::Commands::SaveCookie"},
+        requires_cookie({name: "Start day", value: "Aocli::Commands::StartDay"}),
       ]
       # TODO:
-      # requires_token({name: "Remove token file", value: "Aocli::Commands::RemoveTokenFile"}),
+      # requires_cookie({name: "Remove cookie file", value: "Aocli::Commands::RemoveCookieFile"}),
     end
 
-    def requires_token(hash)
-      hash.merge(options[:token] ? {} : {disabled: "(No token has been set yet)"})
+    def requires_cookie(hash)
+      hash.merge(options[:cookie] ? {} : {disabled: "(No cookie has been set yet)"})
     end
 
     def set_start_day_options
@@ -54,8 +54,8 @@ module Aocli
       options[:output_destination] = "./"
     end
 
-    def set_save_token_options
-      options[:token] = prompt.ask("Paste your token and it will be saved:")
+    def set_save_cookie_options
+      options[:cookie] = prompt.ask("Paste your cookie and it will be saved:")
     end
   end
 end
