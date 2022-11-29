@@ -81,4 +81,4 @@ class Solution
 end
 
 input = File.read("./input.txt")
-Solution.run!(input)
+puts Solution.run!(input)

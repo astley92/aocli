@@ -24,7 +24,7 @@ module Aocli
           end
 
           input = File.read("./input.txt")
-          Solution.run!(input)
+          puts Solution.run!(input)
         RUBY
       end
     end
