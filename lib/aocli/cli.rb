@@ -1,19 +1,17 @@
 module Aocli
   module Cli
-    YEARS = [2022, 2021, 2020, 2019, 2018, 2017, 2016, 2015]
-    DAYS = (1..25).to_a
-    module_function
-
-    def call
+    def self.call(token:)
       prompt = TTY::Prompt.new
 
-      year = prompt.select("What year", *YEARS)
-      day = prompt.select("What day", *DAYS)
+      command_options = [
+        {name: "Set Token", value: :set_token},
+        {name: "Start day", value: :start_day}.merge(token ? {} : {disabled: "(No token has been set yet)"}),
+        {name: "Remove token file", value: :remove_token_file}.merge(token ? {} : {disabled: "(No token has been set yet)"}),
+      ]
 
-      {
-        date: Date.new(year, 12, day),
-        output_destination: "."
-      }
+      choice = prompt.select("What would you like to do?", command_options)
+
+      {token: token, command: choice}
     end
   end
 end

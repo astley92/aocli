@@ -9,5 +9,13 @@ RSpec.describe Aocli::TokenRetriever do
         expect(get_token).to eq("My real token goes in here")
       end
     end
+
+    context "when the user does have one configured" do
+      before { stub_const("Aocli::TokenRetriever::TOKEN_LOCATION", "spec/fixtures/.i_dont_exist") }
+
+      it "returns nil" do
+        expect(get_token).to eq(nil)
+      end
+    end
   end
 end

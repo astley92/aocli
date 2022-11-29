@@ -2,5 +2,17 @@
 
 require("aocli")
 
-options = Aocli::Cli.call
-Aocli::Commands::StartDay.run!(options)
+token = Aocli::TokenRetriever.call
+options = Aocli::Cli.call(token: token)
+command_klasses = Dir.entries("./lib/aocli/commands")
+  .reject { _1 == "." || _1 == ".." }
+  .map { _1.partition(".")[0] }
+  .map { "Aocli::Commands::#{_1.camelize}".constantize }
+
+# Aocli::Commands::StartDay
+command = command_klasses
+  .detect { options[:command] == _1.handled_command }
+
+raise(NotImplementedError, "No command knows how to handle #{options[:command].inspect}") unless command
+
+command.call(options)
