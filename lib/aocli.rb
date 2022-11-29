@@ -10,7 +10,6 @@ require("aocli/version")
 require("aocli/cookie_retriever")
 require("aocli/values")
 
-require("date")
 require("fileutils")
 require("tty-prompt")
 require("nokogiri")
