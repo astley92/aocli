@@ -6,13 +6,17 @@ A simple CLI that helps start any advent of code problem by retrieving the probe
 
 Install the gem using
 
-    $ gem install aocli
+```bash
+gem install aocli
+```
 
 ## Usage
 
 Once installed simply run
 
-    $ aocli
+```bash
+aocli
+```
 
 You'll need to save your advent of code cookie before you can do anything else, simply select the save cookie option and paste your cookie in when prompted. This will save the cookie in the config file located at `~/aocli_config`.
 
