@@ -9,7 +9,7 @@ Gem::Specification.new do |spec|
   spec.email = ["astley92@hotmail.com"]
 
   spec.summary = "Command line application to retrieve advent of code challenges"
-  spec.description = "Command line application to retrieve advent of code challenges"
+  spec.description = "Command line application to retrieve advent of code challenges and create boilerplate solution code"
   spec.homepage = "https://github.com/astley92/aocli"
   spec.license = "MIT"
   spec.required_ruby_version = ">= 2.6.0"
