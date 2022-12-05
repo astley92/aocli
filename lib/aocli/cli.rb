@@ -51,7 +51,7 @@ module Aocli
     end
 
     def set_start_day_options
-      year = prompt.select("Which Year?", Aocli::Values::START_DAY_YEARS)
+      year = prompt.select("Which Year?", Aocli::Values::START_DAY_YEARS.reverse)
       day = prompt.select("Which Day?", Aocli::Values::START_DAY_DAYS)
       options[:date] = Date.new(year, 12, day)
       options[:output_destination] = "./"

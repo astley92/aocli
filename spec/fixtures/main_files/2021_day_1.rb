@@ -69,7 +69,11 @@ class Solution
   end
 
   def self.run!(input)
-    new(parse_input(input)).run!
+    solution = new(parse_input(input))
+    <<~MSG
+      Part One: #{solution.part_one!}
+      Part Two: #{solution.part_two!}
+    MSG
   end
 
   def self.parse_input(input)
@@ -77,10 +81,14 @@ class Solution
     input
   end
 
-  def run!
-    # Solve input
+  def part_one!
+    # Solve part one
+  end
+
+  def part_two!
+    # Solve part two
   end
 end
 
-input = File.read("#{__FILE__}".gsub("main.rb", "input.txt"))
+input = File.read(__FILE__.gsub("main.rb", "input.txt"))
 puts Solution.run!(input)

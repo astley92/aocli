@@ -1,5 +1,11 @@
 ## [Unreleased]
 
-## [0.1.0] - 2022-11-27
+## [1.3.0] - 2022-11-27
 
 - Initial release
+
+## [1.4.0] - 2022-11-27
+
+- Reverses the order of years when selecting year in the CLI to show newest
+  first
+- Update the template solution class to have a method for two parts

@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    aocli (1.3.0)
+    aocli (1.4.1)
       activesupport (~> 7.0)
       faraday (~> 2.7)
       nokogiri (~> 1.13)
