@@ -9,3 +9,7 @@
 - Reverses the order of years when selecting year in the CLI to show newest
   first
 - Update the template solution class to have a method for two parts
+
+## [1.4.3] - 2022-12-11
+
+- Simplify the generated template
