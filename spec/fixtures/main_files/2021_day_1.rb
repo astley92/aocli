@@ -67,11 +67,11 @@ def self.parse_input(input)
   input
 end
 
-def part_one
+def part_one(input)
   # Solve part one
 end
 
-def part_two
+def part_two(input)
   # Solve part two
 end
 
