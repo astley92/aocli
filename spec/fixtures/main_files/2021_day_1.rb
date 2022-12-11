@@ -62,33 +62,19 @@
 #
 # How many measurements are larger than the previous measurement?
 
-class Solution
-  attr_accessor :input
-  def initialize(input)
-    @input = input
-  end
+def self.parse_input(input)
+  # Parse input
+  input
+end
 
-  def self.run!(input)
-    solution = new(parse_input(input))
-    <<~MSG
-      Part One: #{solution.part_one!}
-      Part Two: #{solution.part_two!}
-    MSG
-  end
+def part_one
+  # Solve part one
+end
 
-  def self.parse_input(input)
-    # Parse input
-    input
-  end
-
-  def part_one!
-    # Solve part one
-  end
-
-  def part_two!
-    # Solve part two
-  end
+def part_two
+  # Solve part two
 end
 
 input = File.read(__FILE__.gsub("main.rb", "input.txt"))
-puts Solution.run!(input)
+puts "Part One: #{part_one(parse_input(input))}"
+puts "Part Two: #{part_two(parse_input(input))}"
