@@ -29,7 +29,7 @@ Gem::Specification.new do |spec|
   spec.executables = spec.files.grep(%r{\Aexe/}) { |f| File.basename(f) }
   spec.require_paths = ["lib"]
 
-  spec.add_runtime_dependency("activesupport", "~> 7.0")
+  spec.add_runtime_dependency("activesupport", "~> 7.0.8")
   spec.add_runtime_dependency("nokogiri", "~> 1.13")
   spec.add_runtime_dependency("tty-prompt", "~> 0.23.1")
   spec.add_runtime_dependency("faraday", "~> 2.7")
