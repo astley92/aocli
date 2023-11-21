@@ -13,3 +13,7 @@
 ## [1.4.3] - 2022-12-11
 
 - Simplify the generated template
+
+## [1.4.4] - 2023-11-21
+
+- Support year 2023

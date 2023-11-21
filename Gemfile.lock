@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    aocli (1.4.3)
+    aocli (1.4.4)
       activesupport (~> 7.0)
       faraday (~> 2.7)
       nokogiri (~> 1.13)
@@ -85,6 +85,7 @@ GEM
 
 PLATFORMS
   arm64-darwin-21
+  arm64-darwin-22
 
 DEPENDENCIES
   aocli!
@@ -96,4 +97,4 @@ DEPENDENCIES
   vcr (~> 6.1)
 
 BUNDLED WITH
-   2.3.25
+   2.4.7
