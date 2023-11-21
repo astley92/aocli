@@ -17,3 +17,7 @@
 ## [1.4.4] - 2023-11-21
 
 - Support year 2023
+
+## [1.4.5] - 2023-11-21
+
+- Bump active support version to remove depractor error
