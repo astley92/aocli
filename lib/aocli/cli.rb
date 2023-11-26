@@ -28,6 +28,8 @@ module Aocli
         set_start_day_options
       when "Aocli::Commands::SaveCookie"
         set_save_cookie_options
+      when "Aocli::Commands::RemoveCookie"
+        nil
       when "Exit"
         exit
       else
@@ -39,10 +41,9 @@ module Aocli
       @command_options ||= [
         requires_cookie({name: "Start day", value: "Aocli::Commands::StartDay"}),
         {name: "Save Cookie", value: "Aocli::Commands::SaveCookie"},
+        requires_cookie({name: "Remove cookie file", value: "Aocli::Commands::RemoveCookie"}),
         {name: "Exit", value: "Exit"},
       ]
-      # TODO:
-      # requires_cookie({name: "Remove cookie file", value: "Aocli::Commands::RemoveCookieFile"}),
     end
 
     def requires_cookie(hash)
