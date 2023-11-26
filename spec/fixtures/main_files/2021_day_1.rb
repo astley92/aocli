@@ -1,4 +1,4 @@
-##### Part One Description #####
+# Part One Description
 # --- Day 1: Sonar Sweep ---
 # You're minding your own business on a ship at sea when the overboard alarm goes
 # off! You rush to see if you can help. Apparently, one of the Elves tripped and
@@ -76,5 +76,6 @@ def part_two(input)
 end
 
 input = File.read(__FILE__.gsub("main.rb", "input.txt"))
+
 puts "Part One: #{part_one(parse_input(input))}"
 puts "Part Two: #{part_two(parse_input(input))}"

@@ -1,4 +1,4 @@
-##### Part One Description #####
+__aocli_problem_description__
 
 def self.parse_input(input)
   # Parse input
@@ -13,6 +13,7 @@ def part_two(input)
   # Solve part two
 end
 
-# __load_input__
+__aocli_load_input__
+
 puts "Part One: #{part_one(parse_input(input))}"
 puts "Part Two: #{part_two(parse_input(input))}"

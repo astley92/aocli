@@ -32,15 +32,17 @@ module Aocli
           day: date.day,
         )
 
-        content = Aocli::FileUtils.insert_lines(
+        problem_description = "Part One Description\n" + problem_description
+
+        content = Aocli::FileUtils.replace_line(
+          File.read(File.join(__dir__, "../content/main.txt")),
+          "__aocli_problem_description__",
           Aocli::FileUtils.wrap_lines(problem_description).split("\n").map { _1 == "" ? "#" : "# #{_1}" },
-          into: File.read(File.join(__dir__, "../content/main.txt")),
-          after: "##### Part One Description #####",
         )
 
         Aocli::FileUtils.replace_line(
           content,
-          "# __load_input__",
+          "__aocli_load_input__",
           'input = File.read(__FILE__.gsub("main.rb", "input.txt"))'
         )
       end
