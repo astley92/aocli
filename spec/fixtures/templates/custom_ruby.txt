@@ -1,0 +1,4 @@
+def my_cool_method
+end
+
+__aocli_problem_description__

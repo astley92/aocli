@@ -34,8 +34,13 @@ module Aocli
 
         problem_description = "Part One Description\n" + problem_description
 
+        template_file = Aocli::Config.value_for(:template_path) || File.join(__dir__, "../content/main.txt")
+        unless File.exist?(template_file)
+          template_file = File.join(__dir__, "../content/main.txt")
+        end
+
         content = Aocli::FileUtils.replace_line(
-          File.read(File.join(__dir__, "../content/main.txt")),
+          File.read(template_file),
           "__aocli_problem_description__",
           Aocli::FileUtils.wrap_lines(problem_description).split("\n").map { _1 == "" ? "#" : "# #{_1}" },
         )

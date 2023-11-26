@@ -19,6 +19,44 @@ RSpec.describe Aocli::Commands::StartDay do
       expect(File.read("./spec/tmp/2021/day_1/input.txt")).to eq(expected_input)
     end
 
+    context "when the user has configured their own template" do
+      let(:expected_ruby) { File.read("spec/fixtures/templates/custom_ruby_output.rb") }
+      let(:template_filepath) { "spec/fixtures/templates/custom_ruby.txt" }
+
+      before do
+        allow(Aocli::Config)
+          .to receive(:value_for)
+          .with(:cookie)
+          .and_return("my cookie")
+
+        allow(Aocli::Config)
+          .to receive(:value_for)
+          .with(:template_path)
+          .and_return(template_filepath)
+      end
+
+      it "uses the template" do
+        VCR.use_cassette("start_day_spec") do
+          run
+        end
+
+        expect(File.read("./spec/tmp/2021/day_1/main.rb").strip).to eq(expected_ruby.strip)
+      end
+
+      context "when the template file does not exist" do
+        let(:template_filepath) { "spec/fixtures/templates/i_dont_exist.txt" }
+        let(:expected_ruby) { File.read("spec/fixtures/main_files/2021_day_1.rb") }
+
+        it "uses the default template" do
+          VCR.use_cassette("start_day_spec") do
+            run
+          end
+
+          expect(File.read("./spec/tmp/2021/day_1/main.rb").strip).to eq(expected_ruby.strip)
+        end
+      end
+    end
+
     context "when its prior to the requested date" do
       before do
         Timecop.travel(DateTime.parse("2021-11-30T23:59:56EST"))
