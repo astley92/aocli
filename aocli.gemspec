@@ -30,9 +30,9 @@ Gem::Specification.new do |spec|
   spec.require_paths = ["lib"]
 
   spec.add_runtime_dependency("activesupport", "~> 7.0.8")
+  spec.add_runtime_dependency("faraday", "~> 2.7")
   spec.add_runtime_dependency("nokogiri", "~> 1.13")
   spec.add_runtime_dependency("tty-prompt", "~> 0.23.1")
-  spec.add_runtime_dependency("faraday", "~> 2.7")
 
   spec.add_development_dependency("byebug", "~> 11.0")
   spec.add_development_dependency("rake", "~> 13.0")

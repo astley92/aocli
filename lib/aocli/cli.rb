@@ -1,21 +1,20 @@
-
-require"byebug"
 module Aocli
   class Cli
     def initialize
-      @options = {cookie: Aocli::CookieRetriever.call}
+      @options = { cookie: Aocli::CookieRetriever.call }
       @prompt = TTY::Prompt.new
     end
 
     def run
       prompt_for_command
-      get_all_command_options
+      prompt_command_options
       # Aocli::Commands::StartDay
       # Aocli::Commands::SaveCookie
       options[:command].constantize.run!(options)
     end
 
     private
+
     attr_accessor :options, :prompt
     attr_reader :cookie
 
@@ -23,7 +22,7 @@ module Aocli
       options[:command] = prompt.select("What would you like to do?", command_options)
     end
 
-    def get_all_command_options
+    def prompt_command_options
       case options[:command]
       when "Aocli::Commands::StartDay"
         set_start_day_options
@@ -38,8 +37,8 @@ module Aocli
 
     def command_options
       @command_options ||= [
-        {name: "Save Cookie", value: "Aocli::Commands::SaveCookie"},
         requires_cookie({name: "Start day", value: "Aocli::Commands::StartDay"}),
+        {name: "Save Cookie", value: "Aocli::Commands::SaveCookie"},
         {name: "Exit", value: "Exit"},
       ]
       # TODO:

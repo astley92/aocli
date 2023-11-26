@@ -23,6 +23,7 @@ module Aocli
       end
 
       private
+
       attr_reader :date, :output_destination, :main_file_path, :input_file_path
 
       def main_content
