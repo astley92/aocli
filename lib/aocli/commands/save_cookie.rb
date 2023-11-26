@@ -2,8 +2,7 @@ module Aocli
   module Commands
     module SaveCookie
       def self.run!(options)
-        Aocli::FileUtils.touch_file(Aocli::Values::CONFIG_FILE_PATH)
-        File.write(Aocli::Values::CONFIG_FILE_PATH, {cookie: options[:cookie]}.to_yaml)
+        Aocli::Config.add_config(key: :cookie, value: options[:cookie])
 
         puts <<~MSG
           ### Cookie saved to #{Aocli::Values::CONFIG_FILE_PATH} ###

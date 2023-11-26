@@ -1,7 +1,7 @@
 module Aocli
   class Cli
     def initialize
-      @options = { cookie: Aocli::CookieRetriever.call }
+      @options = { cookie: Aocli::Config.value_for(:cookie) }
       @prompt = TTY::Prompt.new
     end
 

@@ -16,7 +16,7 @@ module Aocli
     class Client
       attr_reader :conn
       def initialize
-        @cookie = Aocli::CookieRetriever.call
+        @cookie = Aocli::Config.value_for(:cookie)
         @conn = initialise_conn_object
         raise(StandardError, "No cookie is set") unless @cookie
       end

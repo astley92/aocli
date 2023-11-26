@@ -25,6 +25,10 @@ RSpec.configure do |config|
     c.syntax = :expect
   end
 
+  config.before do
+    stub_const("Aocli::Values::CONFIG_FILE_PATH", "./spec/tmp/config/.aocli_config")
+  end
+
   config.after do
     Dir.glob("./spec/tmp/*").each { FileUtils.remove_dir(_1) }
   end
