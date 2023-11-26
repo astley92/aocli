@@ -10,6 +10,8 @@ module Aocli
       prompt_command_options
       # Aocli::Commands::StartDay
       # Aocli::Commands::SaveCookie
+      # Aocli::Commands::RemoveCookie
+      # Aocli::Commands::SetTemplatePath
       options[:command].constantize.run!(options)
     end
 
@@ -28,6 +30,8 @@ module Aocli
         set_start_day_options
       when "Aocli::Commands::SaveCookie"
         set_save_cookie_options
+      when "Aocli::Commands::SetTemplatePath"
+        set_template_path_options
       when "Aocli::Commands::RemoveCookie"
         nil
       when "Exit"
@@ -41,6 +45,7 @@ module Aocli
       @command_options ||= [
         requires_cookie({name: "Start day", value: "Aocli::Commands::StartDay"}),
         {name: "Save Cookie", value: "Aocli::Commands::SaveCookie"},
+        {name: "Set Template File", value: "Aocli::Commands::SetTemplatePath"},
         requires_cookie({name: "Remove cookie file", value: "Aocli::Commands::RemoveCookie"}),
         {name: "Exit", value: "Exit"},
       ]
@@ -59,6 +64,10 @@ module Aocli
 
     def set_save_cookie_options
       options[:cookie] = prompt.ask("Paste your cookie and it will be saved:")
+    end
+
+    def set_template_path_options
+      options[:template_path] = prompt.ask("Paste the full file path to your template file:")
     end
   end
 end

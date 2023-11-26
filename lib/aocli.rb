@@ -3,6 +3,7 @@
 require("aocli/advent_of_code")
 require("aocli/cli")
 require("aocli/config")
+require("aocli/commands/set_template_path")
 require("aocli/commands/save_cookie")
 require("aocli/commands/remove_cookie")
 require("aocli/commands/start_day")

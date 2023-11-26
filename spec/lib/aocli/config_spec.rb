@@ -36,4 +36,20 @@ RSpec.describe Aocli::Config do
       )
     end
   end
+
+  describe ".remove_config" do
+    it "removes the given config value" do
+      described_class.add_config(key: :my_special_config, value: "hey there.....")
+      described_class.add_config(key: :my_other_special_config, value: "hey there.....")
+      described_class.remove_config(:my_special_config)
+
+      config = described_class.load_config
+
+      expect(config).to eq(
+        {
+          my_other_special_config: "hey there.....",
+        }
+      )
+    end
+  end
 end

@@ -18,5 +18,11 @@ module Aocli
 
       YAML.load_file(Aocli::Values::CONFIG_FILE_PATH, fallback: {})
     end
+
+    def remove_config(key)
+      config = load_config
+
+      File.write(Aocli::Values::CONFIG_FILE_PATH, config.except(key).to_yaml)
+    end
   end
 end
