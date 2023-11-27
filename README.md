@@ -38,6 +38,23 @@ For the example shown, I viewed 2018 day 11 and can see the cookie inside the co
 
 ![cookie-example](/public/aocli-cookie-helper.png)
 
+## Using your own template file
+
+Don't like the default template you got for each challenge? It's just about as basic as it gets so I've made it easy for users
+to create their own and have it be used. Simply create your own template, structured however your prefer
+and optionally insert the two directives `__aocli_load_input__` and `__aocli_problem_description__`. You can leave either off if you
+prefer to either not have the problem description shown or would like to load your input in another way.
+
+`__aocli_problem_description__` Will be replaced with the given problems description as a comment
+
+`__aocli_load_input__` Will be replaced by the line that loads your input as a string into the `input` variable.
+
+Then run the `aocli` command and choose the "Set Template File" option, paste in the full path to your file and it'll be used
+when generating the files for a given day.
+
+Partial file path could be used if you expect to run aocli from the same location
+all the time but I'd recommend using the full path just in case.
+
 ## Development
 
 After checking out the repo, run `bin/setup` to install dependencies. Then, run `bundle exec rspec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
