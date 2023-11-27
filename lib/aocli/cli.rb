@@ -14,6 +14,7 @@ module Aocli
       # Aocli::Commands::SaveCookie
       # Aocli::Commands::RemoveCookie
       # Aocli::Commands::SetTemplatePath
+      # Aocli::Commands::RemoveTemplatePath
       options[:command].constantize.run!(options)
     end
 
@@ -34,7 +35,7 @@ module Aocli
         set_save_cookie_options
       when "Aocli::Commands::SetTemplatePath"
         set_template_path_options
-      when "Aocli::Commands::RemoveCookie"
+      when "Aocli::Commands::RemoveCookie", "Aocli::Commands::RemoveTemplatePath"
         nil
       when "Exit"
         exit
@@ -47,8 +48,9 @@ module Aocli
       @command_options ||= [
         requires_config(:cookie, {name: "Start day", value: "Aocli::Commands::StartDay"}),
         {name: "Save Cookie", value: "Aocli::Commands::SaveCookie"},
-        requires_config(:cookie, {name: "Remove cookie", value: "Aocli::Commands::RemoveCookie"}),
+        requires_config(:cookie, {name: "Unset cookie", value: "Aocli::Commands::RemoveCookie"}),
         {name: set_template_prompt, value: "Aocli::Commands::SetTemplatePath"},
+        requires_config(:template_path, {name: "Unset template file", value: "Aocli::Commands::RemoveTemplatePath"}),
         {name: "Exit", value: "Exit"},
       ]
     end
