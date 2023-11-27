@@ -5,7 +5,7 @@ module Aocli
         Aocli::Config.remove_config(:cookie)
 
         puts <<~MSG
-          ### #{Aocli::Values::CONFIG_FILE_PATH} file has been removed ###
+          ### Cookie has been removed ###
         MSG
       end
     end

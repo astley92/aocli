@@ -1,7 +1,9 @@
+require "byebug"
+
 module Aocli
   class Cli
     def initialize
-      @options = { cookie: Aocli::Config.value_for(:cookie) }
+      @options = Aocli::Config.load_config
       @prompt = TTY::Prompt.new
     end
 
@@ -43,16 +45,16 @@ module Aocli
 
     def command_options
       @command_options ||= [
-        requires_cookie({name: "Start day", value: "Aocli::Commands::StartDay"}),
+        requires_config(:cookie, {name: "Start day", value: "Aocli::Commands::StartDay"}),
         {name: "Save Cookie", value: "Aocli::Commands::SaveCookie"},
-        {name: "Set Template File", value: "Aocli::Commands::SetTemplatePath"},
-        requires_cookie({name: "Remove cookie file", value: "Aocli::Commands::RemoveCookie"}),
+        requires_config(:cookie, {name: "Remove cookie", value: "Aocli::Commands::RemoveCookie"}),
+        {name: set_template_prompt, value: "Aocli::Commands::SetTemplatePath"},
         {name: "Exit", value: "Exit"},
       ]
     end
 
-    def requires_cookie(hash)
-      hash.merge(options[:cookie] ? {} : {disabled: "(No cookie has been set yet)"})
+    def requires_config(required_config, hash)
+      hash.merge(options[required_config] ? {} : {disabled: "(No #{required_config} has been set yet)"})
     end
 
     def set_start_day_options
@@ -68,6 +70,14 @@ module Aocli
 
     def set_template_path_options
       options[:template_path] = prompt.ask("Paste the full file path to your template file:")
+    end
+
+    def set_template_prompt
+      base_prompt = "Set Template File"
+      if options[:template_path]
+        base_prompt += " -> Currently set to '#{options[:template_path]}'"
+      end
+      base_prompt
     end
   end
 end
